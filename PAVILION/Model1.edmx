@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище PavilionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employeer">
+          <Key>
+            <PropertyRef Name="id_employeer" />
+          </Key>
+          <Property Name="id_employeer" Type="int" Nullable="false" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="midllename" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="foto" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Pavilions">
+          <Key>
+            <PropertyRef Name="num_pavilion" />
+            <PropertyRef Name="id_tc" />
+          </Key>
+          <Property Name="num_pavilion" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="id_tc" Type="int" Nullable="false" />
+          <Property Name="floar" Type="int" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="s" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="money" Type="money" Nullable="false" />
+          <Property Name="coefficient" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="id_rent" />
+          </Key>
+          <Property Name="id_rent" Type="int" Nullable="false" />
+          <Property Name="id_renter" Type="int" Nullable="false" />
+          <Property Name="id_tc" Type="int" Nullable="false" />
+          <Property Name="id_employee" Type="int" Nullable="false" />
+          <Property Name="num_pavilion" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="title_tc" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="start_rent" Type="datetime" Nullable="false" />
+          <Property Name="off_rent" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Renter">
+          <Key>
+            <PropertyRef Name="id_renter" />
+          </Key>
+          <Property Name="id_renter" Type="int" Nullable="false" />
+          <Property Name="id_rent" Type="int" Nullable="false" />
+          <Property Name="company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="street" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="house" Type="int" Nullable="false" />
+          <Property Name="korpus" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TC">
+          <Key>
+            <PropertyRef Name="id_tc" />
+          </Key>
+          <Property Name="id_tc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="colichestvo" Type="int" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="money" Type="money" Nullable="false" />
+          <Property Name="coefficient" Type="float" />
+          <Property Name="floors" Type="int" Nullable="false" />
+          <Property Name="picture" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Pavilions_TC">
+          <End Role="TC" Type="Self.TC" Multiplicity="1" />
+          <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TC">
+              <PropertyRef Name="id_tc" />
+            </Principal>
+            <Dependent Role="Pavilions">
+              <PropertyRef Name="id_tc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Employeer">
+          <End Role="Employeer" Type="Self.Employeer" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employeer">
+              <PropertyRef Name="id_employeer" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Pavilions">
+          <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pavilions">
+              <PropertyRef Name="num_pavilion" />
+              <PropertyRef Name="id_tc" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="num_pavilion" />
+              <PropertyRef Name="id_tc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Renter">
+          <End Role="Renter" Type="Self.Renter" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renter">
+              <PropertyRef Name="id_renter" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="id_renter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище PavilionModelContainer">
+          <EntitySet Name="Employeer" EntityType="Self.Employeer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pavilions" EntityType="Self.Pavilions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renter" EntityType="Self.Renter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TC" EntityType="Self.TC" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Pavilions_TC" Association="Self.FK_Pavilions_TC">
+            <End Role="TC" EntitySet="TC" />
+            <End Role="Pavilions" EntitySet="Pavilions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Employeer" Association="Self.FK_Rent_Employeer">
+            <End Role="Employeer" EntitySet="Employeer" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Pavilions" Association="Self.FK_Rent_Pavilions">
+            <End Role="Pavilions" EntitySet="Pavilions" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Renter" Association="Self.FK_Rent_Renter">
+            <End Role="Renter" EntitySet="Renter" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PavilionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employeer">
+          <Key>
+            <PropertyRef Name="id_employeer" />
+          </Key>
+          <Property Name="id_employeer" Type="Int32" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="midllename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Employeer" FromRole="Employeer" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="Rent">
+          <Key>
+            <PropertyRef Name="id_rent" />
+          </Key>
+          <Property Name="id_rent" Type="Int32" Nullable="false" />
+          <Property Name="id_renter" Type="Int32" Nullable="false" />
+          <Property Name="id_tc" Type="Int32" Nullable="false" />
+          <Property Name="id_employee" Type="Int32" Nullable="false" />
+          <Property Name="num_pavilion" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="title_tc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="start_rent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="off_rent" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employeer" Relationship="Self.FK_Rent_Employeer" FromRole="Rent" ToRole="Employeer" />
+          <NavigationProperty Name="Renter" Relationship="Self.FK_Rent_Renter" FromRole="Rent" ToRole="Renter" />
+          <NavigationProperty Name="Pavilions" Relationship="PavilionModel.FK_Rent_Pavilions" FromRole="Rent" ToRole="Pavilions" />
+        </EntityType>
+        <EntityType Name="Renter">
+          <Key>
+            <PropertyRef Name="id_renter" />
+          </Key>
+          <Property Name="id_renter" Type="Int32" Nullable="false" />
+          <Property Name="id_rent" Type="Int32" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="house" Type="Int32" Nullable="false" />
+          <Property Name="korpus" Type="Int32" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Renter" FromRole="Renter" ToRole="Rent" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Rent_Employeer">
+          <End Role="Employeer" Type="Self.Employeer" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employeer">
+              <PropertyRef Name="id_employeer" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Renter">
+          <End Role="Renter" Type="Self.Renter" Multiplicity="1" />
+          <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renter">
+              <PropertyRef Name="id_renter" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="id_renter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PavilionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employeer" EntityType="Self.Employeer" />
+          <EntitySet Name="Rent" EntityType="Self.Rent" />
+          <EntitySet Name="Renter" EntityType="Self.Renter" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_Rent_Employeer" Association="Self.FK_Rent_Employeer">
+            <End Role="Employeer" EntitySet="Employeer" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Renter" Association="Self.FK_Rent_Renter">
+            <End Role="Renter" EntitySet="Renter" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+          <EntitySet Name="TC" EntityType="PavilionModel.TC" />
+          <EntitySet Name="Pavilions" EntityType="PavilionModel.Pavilions" />
+          <AssociationSet Name="FK_Pavilions_TC" Association="PavilionModel.FK_Pavilions_TC">
+            <End Role="TC" EntitySet="TC" />
+            <End Role="Pavilions" EntitySet="Pavilions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rent_Pavilions" Association="PavilionModel.FK_Rent_Pavilions">
+            <End Role="Pavilions" EntitySet="Pavilions" />
+            <End Role="Rent" EntitySet="Rent" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TC">
+          <Key>
+            <PropertyRef Name="id_tc" />
+          </Key>
+          <Property Name="id_tc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="colichestvo" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="coefficient" Type="Double" />
+          <Property Name="floors" Type="Int32" Nullable="false" />
+          <Property Name="picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Pavilions" Relationship="PavilionModel.FK_Pavilions_TC" FromRole="TC" ToRole="Pavilions" />
+        </EntityType>
+        <EntityType Name="Pavilions">
+          <Key>
+            <PropertyRef Name="num_pavilion" />
+            <PropertyRef Name="id_tc" />
+          </Key>
+          <Property Name="num_pavilion" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="id_tc" Type="Int32" Nullable="false" />
+          <Property Name="floar" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="s" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="money" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="coefficient" Type="Double" Nullable="false" />
+          <NavigationProperty Name="TC" Relationship="PavilionModel.FK_Pavilions_TC" FromRole="Pavilions" ToRole="TC" />
+          <NavigationProperty Name="Rent" Relationship="PavilionModel.FK_Rent_Pavilions" FromRole="Pavilions" ToRole="Rent" />
+        </EntityType>
+        <Association Name="FK_Pavilions_TC">
+          <End Type="PavilionModel.TC" Role="TC" Multiplicity="1" />
+          <End Type="PavilionModel.Pavilions" Role="Pavilions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TC">
+              <PropertyRef Name="id_tc" />
+            </Principal>
+            <Dependent Role="Pavilions">
+              <PropertyRef Name="id_tc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rent_Pavilions">
+          <End Type="PavilionModel.Pavilions" Role="Pavilions" Multiplicity="1" />
+          <End Type="PavilionModel.Rent" Role="Rent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pavilions">
+              <PropertyRef Name="num_pavilion" />
+              <PropertyRef Name="id_tc" />
+            </Principal>
+            <Dependent Role="Rent">
+              <PropertyRef Name="num_pavilion" />
+              <PropertyRef Name="id_tc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PavilionModelContainer" CdmEntityContainer="PavilionEntities">
+          <EntitySetMapping Name="Employeer">
+            <EntityTypeMapping TypeName="PavilionModel.Employeer">
+              <MappingFragment StoreEntitySet="Employeer">
+                <ScalarProperty Name="id_employeer" ColumnName="id_employeer" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="midllename" ColumnName="midllename" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rent">
+            <EntityTypeMapping TypeName="PavilionModel.Rent">
+              <MappingFragment StoreEntitySet="Rent">
+                <ScalarProperty Name="id_rent" ColumnName="id_rent" />
+                <ScalarProperty Name="id_renter" ColumnName="id_renter" />
+                <ScalarProperty Name="id_tc" ColumnName="id_tc" />
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="num_pavilion" ColumnName="num_pavilion" />
+                <ScalarProperty Name="title_tc" ColumnName="title_tc" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="start_rent" ColumnName="start_rent" />
+                <ScalarProperty Name="off_rent" ColumnName="off_rent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renter">
+            <EntityTypeMapping TypeName="PavilionModel.Renter">
+              <MappingFragment StoreEntitySet="Renter">
+                <ScalarProperty Name="id_renter" ColumnName="id_renter" />
+                <ScalarProperty Name="id_rent" ColumnName="id_rent" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="house" ColumnName="house" />
+                <ScalarProperty Name="korpus" ColumnName="korpus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PavilionModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TC">
+            <EntityTypeMapping TypeName="PavilionModel.TC">
+              <MappingFragment StoreEntitySet="TC">
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="floors" ColumnName="floors" />
+                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="colichestvo" ColumnName="colichestvo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_tc" ColumnName="id_tc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pavilions">
+            <EntityTypeMapping TypeName="PavilionModel.Pavilions">
+              <MappingFragment StoreEntitySet="Pavilions">
+                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="s" ColumnName="s" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="floar" ColumnName="floar" />
+                <ScalarProperty Name="id_tc" ColumnName="id_tc" />
+                <ScalarProperty Name="num_pavilion" ColumnName="num_pavilion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

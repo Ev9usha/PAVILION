@@ -1,0 +1,25 @@
+﻿<Page Background="White"
+    x:Class="PAVILION.okup"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PAVILION"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="1500"
+      Title="okup">
+
+    <Grid>
+        <DataGrid Margin="54,215,54,54" Loaded="Page_Loaded"  x:Name="OkDataGrid"/>
+        <TextBlock Foreground="#37474f" Text="Окупаемость ТЦ" 
+                   FontStyle="Italic" FontWeight="Bold" FontSize="14" 
+                   HorizontalAlignment="Left" Margin="750,35,0,0" TextWrapping="Wrap" 
+                   VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Image Source="/Image/Эмблема.png" Height="150" Width="150" VerticalAlignment="Top"
+               Margin="260,44,1090,0" Grid.RowSpan="2" />
+
+        <Button Background="#ff9c1a" Content="Выход" Foreground="#37474f"
+                HorizontalAlignment="Left" Margin="56,49,0,0" 
+                VerticalAlignment="Top" Height="39" Width="149" Click="goBack"/>
+    </Grid>
+</Page>

@@ -21,7 +21,7 @@ namespace PAVILION
     public partial class pavilion_page : Page
     {
         public Pavilions SelectedPv { get; set; }
-        public int TCID { get; set; }
+        public static int TCID { get; set; }
 
         public pavilion_page(int TC_ID)
         {

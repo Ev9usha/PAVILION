@@ -12,13 +12,13 @@
     <Grid>
         <DataGrid Margin="54,215,54,54" Loaded="Page_Loaded"  x:Name="OkDataGrid"/>
         <TextBlock Foreground="#37474f" Text="Окупаемость ТЦ" 
-                   FontStyle="Italic" FontWeight="Bold" FontSize="14" 
+                   FontFamily="Arial" FontSize="14" 
                    HorizontalAlignment="Left" Margin="750,35,0,0" TextWrapping="Wrap" 
                    VerticalAlignment="Top" Grid.RowSpan="2"/>
         <Image Source="/Image/Эмблема.png" Height="150" Width="150" VerticalAlignment="Top"
                Margin="260,44,1090,0" Grid.RowSpan="2" />
 
-        <Button Background="#ff9c1a" Content="Выход" Foreground="#37474f"
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Выход" Foreground="#37474f"
                 HorizontalAlignment="Left" Margin="56,49,0,0" 
                 VerticalAlignment="Top" Height="39" Width="149" Click="goBack"/>
     </Grid>

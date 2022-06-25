@@ -58,23 +58,49 @@ namespace PAVILION
             }
             try
             {
-                var entities = new PavilionEntities();
-                var Pavilions = new Pavilions
+
+                if (!(string.IsNullOrEmpty(floor1.Text)) && Convert.ToInt32(floor1.Text) < 0)
                 {
-                    floar = Convert.ToInt32(floor1.Text),
-                    num_pavilion = pav2.Text,
-                    s = Convert.ToDecimal(plosh3.Text),
-                    status = SelectSTP.Text,
-                    coefficient = Convert.ToDouble(coef5.Text),
-                    money = Convert.ToDecimal(cost6.Text)
+                    MessageBox.Show("Должны быть числа");
+                }
+                else if (string.IsNullOrEmpty(pav2.Text))
+                {
+                    MessageBox.Show("Должны быть строковые значения");
+                }
+                else if (!(string.IsNullOrEmpty(plosh3.Text)) && Convert.ToDecimal( plosh3.Text ) < 0)
+                {
+                    MessageBox.Show("Должны быть числа");
+                }
+                else if (!(string.IsNullOrEmpty(coef5.Text)) && Convert.ToDouble( coef5.Text ) < 0)
+                {
+                    MessageBox.Show("Должны быть числа");
+                }
+                else if (!(string.IsNullOrEmpty(cost6.Text)) && Convert.ToDecimal(cost6.Text )< 0)
+                {
+                    MessageBox.Show("Должна быть числа");
+
+                }
+                else
+                {
+                    var entities = new PavilionEntities();
+                    var Pavilions = new Pavilions
+                    {
+                        floar = Convert.ToInt32(floor1.Text),
+                        num_pavilion = pav2.Text,
+                        s = Convert.ToDecimal(plosh3.Text),
+                        status = SelectSTP.Text,
+                        coefficient = Convert.ToDouble(coef5.Text),
+                        money = Convert.ToDecimal(cost6.Text),
+                        id_tc = pavilion_page.TCID
                 };
-                entities.Pavilions.Add(Pavilions);
-                entities.SaveChanges();
-                MessageBox.Show(string.Format("Успешно добавлено  ({0})", pav2.Text));
+                    entities.Pavilions.Add(Pavilions);
+                    entities.SaveChanges();
+                    MessageBox.Show(string.Format("Успешно добавлено  ({0})", pav2.Text));
+                }
 
             }
             catch (Exception ex) { 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show($"Неправильный формат введенной строки");
             }
 
 

@@ -12,20 +12,22 @@
     <Grid >
 
         <Image Source="/Image/Эмблема.png" Height="150" Width="150" VerticalAlignment="Top" Margin="260,44,1090,0" Grid.RowSpan="2"/>
-        <Button Background="#ff9c1a" Foreground="#37474f" Content="Удалить" 
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Foreground="#37474f" Content="Удалить" 
                 HorizontalAlignment="Left" Margin="56,49,0,0" VerticalAlignment="Top" 
                 Height="39" Width="149" Click="DEl_Click" Grid.RowSpan="2"/>
-        <Button Background="#ff9c1a" Content="Добавить ТЦ" HorizontalAlignment="Left" 
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Добавить Павильон" HorizontalAlignment="Left" 
                 Margin="56,100,0,0" Foreground="#37474f" VerticalAlignment="Top" Height="39" Width="149" Click="AddPav" Grid.RowSpan="2"/>
-        <Button Background="#ff9c1a" Content="Список ТЦ" Foreground="#37474f"
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Список ТЦ" Foreground="#37474f"
                 HorizontalAlignment="Left" Margin="56,150,0,0" 
                 VerticalAlignment="Top" Height="39" Width="149" Click="goBack" Grid.RowSpan="2"/>
         <TextBlock Foreground="#37474f" Text="СПИСОК ПАВИЛЬОНОВ" 
-                   FontStyle="Italic" FontWeight="Bold" FontSize="14" 
+                   FontFamily="Arial" FontWeight="Bold" FontSize="14" 
                    HorizontalAlignment="Left" Margin="750,35,0,0" TextWrapping="Wrap" 
                    VerticalAlignment="Top" Grid.RowSpan="2"/>
         <DataGrid Margin="54,215,54,54"
-                  x:Name="PavGrid" AutoGenerateColumns="false" IsReadOnly="True" >
+                  x:Name="PavGrid" AutoGenerateColumns="false" IsReadOnly="True" 
+                  SelectedItem="{Binding SelectedPv}">
+            
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Статус Tц" Width="100" Binding="{Binding TC.status}"/>
                 <DataGridTextColumn Header="Название Tц" Width="150" Binding="{Binding TC.name}"/>
@@ -49,15 +51,15 @@
             Loaded="Page_Loaded3" HorizontalAlignment="Left" Margin="1150,125,0,0" 
                   VerticalAlignment="Top" Width="184" Height="43" SelectionChanged="ComboBox_SelectionChanged_2" 
                   x:Name="Combo3"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" 
+        <TextBlock FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" 
                    Margin="600,75,0,0" TextWrapping="Wrap" 
                    Text=" Статус:" VerticalAlignment="Top" Height="34" 
                    Width="85" FontSize="12"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" 
+        <TextBlock FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" 
                    Margin="890,75,0,0" TextWrapping="Wrap" 
                    Text=" Этаж:" VerticalAlignment="Top" Height="34" 
                    Width="85" FontSize="12"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" 
+        <TextBlock FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" 
                    Margin="1160,75,0,0" TextWrapping="Wrap" 
                    Text=" Площадь:" VerticalAlignment="Top" Height="34" 
                    Width="85" FontSize="12"/>

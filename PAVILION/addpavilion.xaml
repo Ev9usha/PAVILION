@@ -10,19 +10,19 @@
       Title="addpavilion">
 
     <Grid>
-        <Button Background="#ff9c1a" Content="Выход" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top" x:Name="Exit" Click="Exit_Click"/>
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Выход" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top" x:Name="Exit" Click="Exit_Click"/>
         <Image Source="/Image/Эмблема.png" Height="150" Width="150" VerticalAlignment="Top" Margin="56,90,1294,0"/>
-        <Button Background="#ff9c1a" Content="Сохранить" 
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Сохранить" 
                 HorizontalAlignment="Left" Margin="72,450,0,0" VerticalAlignment="Top" 
                 Height="39" Width="122" x:Name="Save" Click="Save_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="402,35,0,0" FontStyle="Italic" FontWeight="Bold"
+        <TextBlock FontFamily="Arial" HorizontalAlignment="Left" Margin="402,35,0,0"  FontWeight="Bold"
                     Foreground="#37474f" FontSize="14" TextWrapping="Wrap" Text="ИНТЕРФЕЙС ПАВИЛЬОНА" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,100,0,0" TextWrapping="Wrap" Text="Номер этажа:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,175,0,0" TextWrapping="Wrap" Text="Номер павильона:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,250,0,0" TextWrapping="Wrap" Text="Площадь:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,325,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="370,400,0,0" TextWrapping="Wrap" Text="Коэффициент добавочной стоимости:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,475,0,0" TextWrapping="Wrap" Text="Стоимость кв.м." VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,100,0,0" TextWrapping="Wrap" Text="Номер этажа:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,175,0,0" TextWrapping="Wrap" Text="Номер павильона:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,250,0,0" TextWrapping="Wrap" Text="Площадь:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,325,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="370,400,0,0" TextWrapping="Wrap" Text="Коэффициент добавочной стоимости:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,475,0,0" TextWrapping="Wrap" Text="Стоимость кв.м." VerticalAlignment="Top"/>
         <ComboBox  HorizontalAlignment="Left" Margin="600,325,0,0" VerticalAlignment="Top" 
                    Width="150" x:Name="SelectSTP" Loaded="Page_Loaded"/>
         <TextBox x:Name="floor1" HorizontalAlignment="Left" Margin="600,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>

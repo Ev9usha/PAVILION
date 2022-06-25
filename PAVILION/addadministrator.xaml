@@ -10,22 +10,22 @@
       Title="addadministrator">
 
     <Grid>
-        <Button Background="#ff9c1a" Content="Выход" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top" x:Name="Exit" Click="Exit_Click"/>
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Выход" HorizontalAlignment="Left" Margin="19,27,0,0" VerticalAlignment="Top" x:Name="Exit" Click="Exit_Click"/>
         <Image Source="/Image/Эмблема.png" Height="150" Width="150" VerticalAlignment="Top" Margin="56,90,1294,0"/>
-        <Button Background="#ff9c1a" Content="Сохранить" 
+        <Button FontSize="10" FontFamily="Arial" Background="#ff9c1a" Content="Сохранить" 
                 HorizontalAlignment="Left" Margin="72,450,0,0" VerticalAlignment="Top" 
                 Height="39" Width="122" x:Name="Save" Click="Save_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="402,35,0,0" FontStyle="Italic" FontWeight="Bold"
+        <TextBlock HorizontalAlignment="Left" Margin="402,35,0,0" FontWeight="Bold" FontFamily="Arial"
                     Foreground="#37474f" FontSize="14" TextWrapping="Wrap" Text="ИНТЕРФЕЙС АДМИНСТРАТОРА" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,100,0,0" TextWrapping="Wrap" Text="Фамилия:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,175,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,250,0,0" TextWrapping="Wrap" Text="Отчество:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,325,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,400,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,475,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,550,0,0" TextWrapping="Wrap" Text="Роль:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,625,0,0" TextWrapping="Wrap" Text="Телефон:" VerticalAlignment="Top"/>
-        <TextBlock Foreground="#78909c" HorizontalAlignment="Left" Margin="390,700,0,0" TextWrapping="Wrap" Text="Фото:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,100,0,0" TextWrapping="Wrap" Text="Фамилия:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,175,0,0" TextWrapping="Wrap" Text="Имя:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,250,0,0" TextWrapping="Wrap" Text="Отчество:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,325,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,400,0,0" TextWrapping="Wrap" Text="Пароль:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,475,0,0" TextWrapping="Wrap" Text="Пол:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,550,0,0" TextWrapping="Wrap" Text="Роль:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,625,0,0" TextWrapping="Wrap" Text="Телефон:" VerticalAlignment="Top"/>
+        <TextBlock FontSize="12" FontFamily="Arial" Foreground="#78909c" HorizontalAlignment="Left" Margin="390,700,0,0" TextWrapping="Wrap" Text="Фото:" VerticalAlignment="Top"/>
         <Button  Background="#ff9c1a"  HorizontalAlignment="Left" Margin="650,700,0,0" Width="120" Height="20" Click="iz_Click" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="650,100,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="TextBox2" HorizontalAlignment="Left" Margin="650,175,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>

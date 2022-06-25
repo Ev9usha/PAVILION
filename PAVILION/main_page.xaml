@@ -55,7 +55,7 @@
         <ComboBox Background="#ff9c1a" HorizontalAlignment="Left" SelectedValue="{Binding CitySort, Mode=TwoWay}"
                   VerticalAlignment="Top" Width="342" Height="41" 
                   x:Name="CityChan" SelectionChanged="CityChan_SelectionChanged"
-                  Loaded="Page_Loaded" Margin="466,94,0,0">
+                  Loaded="Page_Loaded" Margin="465,141,0,0">
         </ComboBox>
         <ComboBox Background="#ff9c1a" HorizontalAlignment="Left" 
                   Margin="1075,100,0,0" VerticalAlignment="Top" Width="162"
@@ -63,7 +63,7 @@
                   Height="34" x:Name="StatusChan" SelectionChanged="StatusChan_SelectionChanged"
                   Loaded="Page_Loaded2"/>
         <TextBlock Background="AliceBlue" HorizontalAlignment="Left" 
-                   Margin="524,54,0,0" TextWrapping="Wrap" 
+                   Margin="522,82,0,0" TextWrapping="Wrap" 
                    Text=" Город:" VerticalAlignment="Top" Height="34" 
                    Width="85" FontSize="20"/>
         <TextBlock Background="AliceBlue" HorizontalAlignment="Left" 

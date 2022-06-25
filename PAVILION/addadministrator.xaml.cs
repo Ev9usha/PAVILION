@@ -80,23 +80,62 @@ namespace PAVILION
             }
             try
             {
-                var entities = new PavilionEntities();
-                var Employeer = new Employeer
+                if (string.IsNullOrEmpty(TextBox1.Text))
                 {
-                    surname = TextBox1.Text,
-                    name = TextBox2.Text,
-                    midllename = TextBox3.Text,
-                    login = TextBox4.Text,
-                    password = TextBox5.Text,
-                    gender = TextBox6.Text,
-                    role = TextBox7.Text,
-                    phone = TextBox8.Text
+                    MessageBox.Show("Должно быть строковое значение");
+                }
+                else if (string.IsNullOrEmpty(TextBox2.Text))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
+                }
+                else if (string.IsNullOrEmpty(TextBox3.Text))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
+                }
+                else if (string.IsNullOrEmpty(TextBox4.Text))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
+                }
+                else if ((string.IsNullOrEmpty(TextBox5.Text)))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
 
-                };
-                entities.Employeer.Add(Employeer);
-                entities.SaveChanges();
-                MessageBox.Show(string.Format("Успешно добавлено  ({0} {1} {2})", TextBox1.Text, TextBox2.Text, TextBox3.Text));
+                }
+                else if ((string.IsNullOrEmpty(TextBox6.Text)))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
 
+                }
+                else if ((string.IsNullOrEmpty(TextBox7.Text)))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
+
+                }
+                else if ((string.IsNullOrEmpty(TextBox8.Text)))
+                {
+                    MessageBox.Show("Должно быть строковое значение");
+
+                }
+                else
+                {
+                    var entities = new PavilionEntities();
+                    var Employeer = new Employeer
+                    {
+                        surname = TextBox1.Text,
+                        name = TextBox2.Text,
+                        midllename = TextBox3.Text,
+                        login = TextBox4.Text,
+                        password = TextBox5.Text,
+                        gender = TextBox6.Text,
+                        role = TextBox7.Text,
+                        phone = TextBox8.Text
+
+                    };
+                    entities.Employeer.Add(Employeer);
+                    entities.SaveChanges();
+                    MessageBox.Show(string.Format("Успешно добавлено  ({0} {1} {2})", TextBox1.Text, TextBox2.Text, TextBox3.Text));
+
+                }
             }
             catch (Exception ex)
             {
